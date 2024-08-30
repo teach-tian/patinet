@@ -37,18 +37,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/.vitepress/dist/artifact
 
-  gitee:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Sync To Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-          # 注意替换为你的 GitHub 源仓库地址
-          source-repo: git@github.com:teach-tian/patinet.git
+  # gitee:
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Sync To Gitee
+  #       uses: wearerequired/git-mirror-action@master
+  #       env:
+  #         # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+  #         SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+  #       with:
+  #         # 注意替换为你的 GitHub 源仓库地址
+  #         source-repo: git@github.com:teach-tian/patinet.git
           # 注意替换为你的 Gitee 目标仓库地址
           # destination-repo: git@gitee.com:teach-tian/patinet.git
           # dry-run: true
